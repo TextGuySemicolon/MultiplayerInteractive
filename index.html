@@ -74,8 +74,6 @@
   // Set up the socket connection with auth token
   window.socket = io("http://localhost:3000");
 
-
-
   // Connection success
   window.socket.on("connect", function () {
   console.log("Successfully connected to the server");
@@ -86,7 +84,7 @@
   // Emit join event
   function joinGame(username, profileId) {
     if (window.socket) {
-      window.socket.emit("joinGame", String(username), String(profileId));
+      window.socket.emit("joinGame", { username: username, profileId: profileId});
     }
   }
 
